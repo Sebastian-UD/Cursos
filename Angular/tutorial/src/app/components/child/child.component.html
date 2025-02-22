@@ -1,0 +1,23 @@
+<h2>Este es un componente hijo</h2>
+
+<!-- Usando inputs -->
+<!-- <h2>{{ msg }}</h2> 
+
+<h3>Person:</h3>
+<p>{{ person.nombre }}</p>
+<p>{{ person.apellido }}</p>
+
+-->
+
+<!-- Usando signals -->
+<h2>{{ msg() }}</h2>
+
+<h3>Person:</h3>
+<p>{{ person().nombre }}</p>
+<p>{{ person().apellido }}</p>
+
+
+<div>
+    <p>Nombre de usuario: {{ userName }}</p>
+    <button (click)="handleLogin()">Login</button>
+</div>

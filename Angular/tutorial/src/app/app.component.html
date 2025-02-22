@@ -1,0 +1,82 @@
+<h1>Username {{ username }}</h1> <!-- Notación de bigote -->
+
+<label>Data binding</label>
+<br>
+<input type="text" [value]="username"> <!-- Data binding -->
+<br>
+<label>Double Data binding</label>
+<br>
+<input type="text" [(ngModel)]="username"> <!-- Double Data binding -->
+
+<h1 (click)="addOne()">Numero: {{ number }}</h1> <!-- Eventos -->
+
+<!-- Condicional -->
+@if (condition) {
+    <h2>La condicion se cumple</h2>
+}
+@else if (condition2) {
+    <h2>La condicion 2 se cumple</h2>
+}
+@else {
+    <h2>Ninguna condicion se cumplió</h2>
+}
+
+<!-- Bucle for -->
+<h1>Bucle For</h1>
+@for (movie of movies; track movie) {
+    <p>{{ $index + 1 }} - {{ movie }}</p>
+}
+
+<ul>
+    @for (animal of animals; track animal.id) {
+        <li>
+            <h2>{{ animal.name }}</h2>
+            <img [src]="animal.img" alt="" width="200">
+        </li>
+    }
+</ul>
+
+<!-- Comunicacion padre-hijo -->
+<h1>Comunicacion padre -> hijo</h1>
+<app-child [msg]="text" [person]="person"></app-child>
+
+
+<!-- Comunicacion hijo-padre -->
+<h1>Comunicacion hijo -> padre</h1>
+<!--
+
+<app-child (loginEvent)="setName($event)"></app-child>
+
+-->
+<h2>Hola {{ name }}</h2>
+
+<!-- ngClass Clases dinámicas -->
+
+<h1>ngClass | Clases Dinámicas</h1>
+
+<h2 [ngClass]="{dark: isDark, big: true}">Hola a todos</h2>
+
+<button (click)="toggleDark()">Toggle Dark</button>
+<br>
+<br>
+
+
+<!-- Formularios reactivos -->
+
+<form [formGroup]="movieForm" (submit)="handleSubmit()">
+    <fieldset>
+        <label for="movie-name">Movie name:</label>
+        <input type="text" id="movie-name" formControlName="name">
+    </fieldset>
+    <fieldset>
+        <label for="movie-duration">Movie duration:</label>
+        <input type="text" id="movie-duration" formControlName="duration">
+    </fieldset>
+    <fieldset>
+        <label for="movie-director">Movie director:</label>
+        <input type="text" id="movie-director" formControlName="director">
+    </fieldset>
+
+    <button>Create movie</button>
+
+</form>
